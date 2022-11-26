@@ -11,8 +11,9 @@ while  [ "$LOOP" == "" ]
     PREVIOUS=$LN
     POLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f1)
     ENGLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f2)
+    CASE=$(sed -n "$LN"p $FILE | cut -d ',' -f3)
     printf '\n%.0s' $(seq 1 $(tput lines))
-    printf $POLISH
+    printf "$POLISH $CASE"
     read
     printf $ENGLISH
     read
