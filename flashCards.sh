@@ -1,6 +1,6 @@
 #¬/bin/bash
-# get words from:
-# https://www.polishpod101.com/polish-word-lists/?list=1
+# get words from: https://www.polishpod101.com/polish-word-lists/?list=1
+# get cases from: https://www.polonista.pl/jutro
 LOOP=""
 PREVIOUS=0
 FILE="flashCards.csv"
@@ -11,9 +11,8 @@ while  [ "$LOOP" == "" ]
     PREVIOUS=$LN
     POLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f1)
     ENGLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f2)
-    CASE=$(sed -n "$LN"p $FILE | cut -d ',' -f3)
     printf '\n%.0s' $(seq 1 $(tput lines))
-    printf "$POLISH $CASE"
+    printf $POLISH
     read
     printf $ENGLISH
     read
