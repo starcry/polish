@@ -12,9 +12,9 @@ while  [ "$LOOP" == "" ]
     POLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f1)
     ENGLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f2)
     printf '\n%.0s' $(seq 1 $(tput lines))
-    printf $POLISH
-    read
     printf $ENGLISH
+    read
+    printf $POLISH
     read
   fi
 done
