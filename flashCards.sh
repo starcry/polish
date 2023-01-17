@@ -5,13 +5,11 @@ LOOP=""
 PREVIOUS=0
 FILE="flashCards.csv"
 ORDER="${1:-r}"
+
 while  [ "$LOOP" == "" ]
-  do LN=$(( $RANDOM % $(wc -l $FILE | cut -d ' ' -f1) + 1 ))
-  if [ $LN != $PREVIOUS ]
-  then
-    PREVIOUS=$LN
-    POLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f1)
-    ENGLISH=$(sed -n "$LN"p $FILE | cut -d ',' -f2)
+  do for i in $(shuf $FILE)
+  do POLISH=$(echo $i | cut -d ',' -f1)
+  ENGLISH=$(echo $i | cut -d ',' -f2)
     printf '\n%.0s' $(seq 1 $(tput lines))
     if [ $ORDER = "e" ]; then
       printf $ENGLISH
@@ -37,5 +35,5 @@ while  [ "$LOOP" == "" ]
         read
       fi
     fi
-  fi
+  done
 done
