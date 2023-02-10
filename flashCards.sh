@@ -6,6 +6,7 @@ PREVIOUS=0
 FILE="flashCards.csv"
 ORDER="${1:-r}"
 
+IFS=$'\n'
 while  [ "$LOOP" == "" ]
   do for i in $(shuf $FILE)
   do POLISH=$(echo $i | cut -d ',' -f1)
