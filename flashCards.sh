@@ -1,6 +1,7 @@
 #¬/bin/bash
-# get words from: https://www.polishpod101.com/polish-word-lists/?list=1
-# get cases from: https://www.polonista.pl/jutro
+echo https://www.polishpod101.com/polish-word-lists/?list=1
+echo https://www.polonista.pl/jutro
+read
 LOOP=""
 PREVIOUS=0
 FILE="flashCards.csv"
