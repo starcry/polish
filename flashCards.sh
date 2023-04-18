@@ -4,8 +4,8 @@ echo https://www.polonista.pl/jutro
 read
 LOOP=""
 PREVIOUS=0
-FILE="flashCards.csv"
-ORDER="${1:-r}"
+FILE=${1:-flashCards.csv}
+ORDER="${2:-r}"
 
 IFS=$'\n'
 while  [ "$LOOP" == "" ]
